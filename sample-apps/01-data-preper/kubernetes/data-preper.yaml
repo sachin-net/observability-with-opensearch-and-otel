@@ -30,9 +30,9 @@ data:
         - otel_trace_raw_prepper:
       sink:
         - opensearch:
-            hosts: [ "https://__AOS_ENDPOINT__" ]
-            username: "__AOS_USERNAME__"
-            password: "__AOS_PASSWORD__"
+            hosts: [ "http://opensearch-cluster-master.selfmanaged-opensearch:9200" ]
+            username: "admin"
+            password: "admin"
             trace_analytics_raw: true
     service-map-pipeline:
       delay: "100"
@@ -43,9 +43,9 @@ data:
         - service_map_stateful:
       sink:
         - opensearch:
-            hosts: [ "https://__AOS_ENDPOINT__" ]
-            username: "__AOS_USERNAME__"
-            password: "__AOS_PASSWORD__"
+            hosts: [ "http://opensearch-cluster-master.selfmanaged-opensearch:9200" ]
+            username: "admin"
+            password: "admin"
             trace_analytics_service_map: true
     log-pipeline:
       source:
@@ -61,9 +61,9 @@ data:
               log: [ "%{COMMONAPACHELOG}" ]
       sink:
         - opensearch:
-            hosts: [ "https://__AOS_ENDPOINT__" ]
-            username: "__AOS_USERNAME__"
-            password: "__AOS_PASSWORD__"
+            hosts: [ "http://opensearch-cluster-master.selfmanaged-opensearch:9200" ]
+            username: "admin"
+            password: "admin"
             index: sample_app_logs 
   data-prepper-config.yaml: |
     ssl: false

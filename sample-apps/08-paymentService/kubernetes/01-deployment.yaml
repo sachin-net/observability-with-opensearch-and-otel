@@ -14,9 +14,12 @@ spec:
     metadata:
       labels:
         app: payment-service
+      annotations:
+        prometheus.io/scrape: 'true'
+        prometheus.io/port: '9187'
     spec:
       containers:
-      - image: __ACCOUNT_ID__.dkr.ecr.__AWS_REGION__.amazonaws.com/payment-service
+      - image: 283422588477.dkr.ecr.ap-south-1.amazonaws.com/payment-service
         name: payment-service
         ports:
         - containerPort: 5000

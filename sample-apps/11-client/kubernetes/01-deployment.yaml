@@ -16,7 +16,7 @@ spec:
         app: client-service
     spec:
       containers:
-      - image: __ACCOUNT_ID__.dkr.ecr.__AWS_REGION__.amazonaws.com/client-service
+      - image: 283422588477.dkr.ecr.ap-south-1.amazonaws.com/client-service
         name: client-service
         ports:
         - containerPort: 5000

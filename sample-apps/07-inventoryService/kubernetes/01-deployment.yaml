@@ -14,9 +14,12 @@ spec:
     metadata:
       labels:
         app: inventory-service
+      annotations:
+        prometheus.io/scrape: 'true'
+        prometheus.io/port: '9187'
     spec:
       containers:
-      - image: __ACCOUNT_ID__.dkr.ecr.__AWS_REGION__.amazonaws.com/inventory-service
+      - image: 283422588477.dkr.ecr.ap-south-1.amazonaws.com/inventory-service
         name: inventory-service
         ports:
         - containerPort: 5000
@@ -32,6 +35,7 @@ spec:
           value: "otel-collector.otel-collector.svc.cluster.local"
         - name: DATABASE
           value: "database-service.database-service.svc.cluster.local"
+          # value: "database-private-subnet-postgresql.cqsj5czhbzgk.ap-south-1.rds.amazonaws.com"
         - name: LOGS
           value: "analytics-service.analytics-service.svc.cluster.local" # Analytics Service
 ---
